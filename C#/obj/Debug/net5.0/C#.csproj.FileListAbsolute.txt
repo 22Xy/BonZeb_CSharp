@@ -1,0 +1,15 @@
+/Users/martinyan/BonZeb_CSharp/C#/obj/Debug/net5.0/C#.csproj.AssemblyReference.cache
+/Users/martinyan/BonZeb_CSharp/C#/obj/Debug/net5.0/C#.GeneratedMSBuildEditorConfig.editorconfig
+/Users/martinyan/BonZeb_CSharp/C#/obj/Debug/net5.0/C#.AssemblyInfoInputs.cache
+/Users/martinyan/BonZeb_CSharp/C#/obj/Debug/net5.0/C#.AssemblyInfo.cs
+/Users/martinyan/BonZeb_CSharp/C#/obj/Debug/net5.0/C#.csproj.CoreCompileInputs.cache
+/Users/martinyan/BonZeb_CSharp/C#/bin/Debug/net5.0/C#.deps.json
+/Users/martinyan/BonZeb_CSharp/C#/bin/Debug/net5.0/C#.runtimeconfig.json
+/Users/martinyan/BonZeb_CSharp/C#/bin/Debug/net5.0/C#.runtimeconfig.dev.json
+/Users/martinyan/BonZeb_CSharp/C#/bin/Debug/net5.0/C#.dll
+/Users/martinyan/BonZeb_CSharp/C#/bin/Debug/net5.0/ref/C#.dll
+/Users/martinyan/BonZeb_CSharp/C#/bin/Debug/net5.0/C#.pdb
+/Users/martinyan/BonZeb_CSharp/C#/obj/Debug/net5.0/C#.dll
+/Users/martinyan/BonZeb_CSharp/C#/obj/Debug/net5.0/ref/C#.dll
+/Users/martinyan/BonZeb_CSharp/C#/obj/Debug/net5.0/C#.pdb
+/Users/martinyan/BonZeb_CSharp/C#/obj/Debug/net5.0/C#.genruntimeconfig.cache
