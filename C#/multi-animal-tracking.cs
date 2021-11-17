@@ -50,6 +50,21 @@ namespace BonZeb {
 
 			return result;
 		}
+		private static bool Transpose<T>(ref T[,] cost)
+        {
+            // In our solution, we will assume that nr <= nc. If this isn't the case,
+            // we transpose the entire matrix and make sure to fix up the results at
+            // the end of the day.
+            var nr = cost.GetLength(0);
+            var nc = cost.GetLength(1);
+            if (nr <= nc) return false;
+            var tmpCost = new T[nc, nr];
+            for (var i = 0; i < nc; i++)
+            for (var j = 0; j < nr; j++)
+                tmpCost[i, j] = cost[j, i];
+            cost = tmpCost;
+            return true;
+        }
 
 		public static List<int[]> LinearSumAssignment(double[,] cost) {
 			/*
@@ -71,18 +86,28 @@ namespace BonZeb {
 			var nr = cost.GetLength(0);
             var nc = cost.GetLength(1);
 
-            // Initialize working arrays
-            var u = new double[nr];
-            var v = new double[nc];
-            var shortestPathCosts = new double[nc];
-            var path = new int[nc];
-            var x = new int[nr];
-            var y = new int[nc];
-            var sr = new bool[nr];
-            var sc = new bool[nc];
-            Array.Fill(path, -1);
-            Array.Fill(x, -1);
-            Array.Fill(y, -1);
+			if (nr >= nc) {
+				var tmpCost = new double[nc, nr];
+				for (var i = 0; i < nc; i++)
+				for (var j = 0; j < nr; j++)
+					tmpCost[i, j] = cost[j, i];
+				cost = tmpCost;
+				nr = cost.GetLength(0);
+            	nc = cost.GetLength(1);
+			}
+
+			// Initialize working arrays
+			var u = new double[nr];
+			var v = new double[nc];
+			var shortestPathCosts = new double[nc];
+			var path = new int[nc];
+			var x = new int[nr];
+			var y = new int[nc];
+			var sr = new bool[nr];
+			var sc = new bool[nc];
+			Array.Fill(path, -1);
+			Array.Fill(x, -1);
+			Array.Fill(y, -1);
 
 			// Find a matching one vertex at a time
 			for (var curRow = 0; curRow < nr; curRow++) {
@@ -92,8 +117,8 @@ namespace BonZeb {
 				var remaining = new int[nc].ToList();
 				var numRemaining = nc;
 				for (var jp = 0; jp < nc; jp++) {
-						remaining[jp] = jp;
-						shortestPathCosts[jp] = double.PositiveInfinity;
+					remaining[jp] = jp;
+					shortestPathCosts[jp] = double.PositiveInfinity;
 				}
 				Array.Clear(sr, 0, sr.Length);
 				Array.Clear(sc, 0, sc.Length);
@@ -117,6 +142,7 @@ namespace BonZeb {
 							path[jl] = i;
 							shortestPathCosts[jl] = r;
 						}
+						// Console.WriteLine(lowest + " " + shortestPathCosts[jl]);
 
 						if (shortestPathCosts[jl] < lowest || shortestPathCosts[jl] == lowest && y[jl] == -1)
 						{
@@ -124,8 +150,8 @@ namespace BonZeb {
 							indexLowest = jk;
 						}
 					}
-
 					minVal = lowest;
+					// Console.WriteLine(indexLowest);
 					var jp = remaining[indexLowest];
 					if (double.IsPositiveInfinity(minVal))
 						throw new InvalidOperationException("No feasible solution.");
@@ -138,7 +164,6 @@ namespace BonZeb {
 					remaining[indexLowest] = remaining[--numRemaining];
 					remaining.RemoveAt(numRemaining);
 				}
-
 				if (sink < 0)
 					throw new InvalidOperationException("No feasible solution.");
 

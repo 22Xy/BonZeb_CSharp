@@ -1,8 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "Sj+k9EEUzvYf2NNdqAw4PZ/mfmj1RvDFsXSEP0sf4YHrwibJ1JQY7u46SNljIpwUpMnFqFOR4JAYk2LASrjZ8Q==",
+  "dgSpecHash": "K2yWluLLAPwCKB4H7oIaYdvTAEAG/0fO+7GNfsvw+KuqlTVG8rsKW7hRY2YtJpL6EAlUoOPJe1UMhVPcRbOKbA==",
   "success": true,
   "projectFilePath": "/Users/martinyan/BonZeb_CSharp/C#/C#.csproj",
-  "expectedPackageFiles": [],
+  "expectedPackageFiles": [
+    "/Users/martinyan/.nuget/packages/linearassignment/1.2.0/linearassignment.1.2.0.nupkg.sha512"
+  ],
   "logs": []
 }

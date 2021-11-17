@@ -13,3 +13,4 @@
 /Users/martinyan/BonZeb_CSharp/C#/obj/Debug/net5.0/ref/C#.dll
 /Users/martinyan/BonZeb_CSharp/C#/obj/Debug/net5.0/C#.pdb
 /Users/martinyan/BonZeb_CSharp/C#/obj/Debug/net5.0/C#.genruntimeconfig.cache
+/Users/martinyan/BonZeb_CSharp/C#/bin/Debug/net5.0/LinearAssignment.dll

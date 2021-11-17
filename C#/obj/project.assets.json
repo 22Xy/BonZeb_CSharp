@@ -1,11 +1,36 @@
 {
   "version": 3,
   "targets": {
-    "net5.0": {}
+    "net5.0": {
+      "LinearAssignment/1.2.0": {
+        "type": "package",
+        "compile": {
+          "lib/netstandard2.1/LinearAssignment.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.1/LinearAssignment.dll": {}
+        }
+      }
+    }
   },
-  "libraries": {},
+  "libraries": {
+    "LinearAssignment/1.2.0": {
+      "sha512": "KawnZ+ikYRCiiuKFRhtNs2mC+kLiD+bqIpsQyTxroYCN8kuet/RZL1354T+9e9q4J0yOiGSbZUUrMJGw7InkIg==",
+      "type": "package",
+      "path": "linearassignment/1.2.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/netstandard2.1/LinearAssignment.dll",
+        "linearassignment.1.2.0.nupkg.sha512",
+        "linearassignment.nuspec"
+      ]
+    }
+  },
   "projectFileDependencyGroups": {
-    "net5.0": []
+    "net5.0": [
+      "LinearAssignment >= 1.2.0"
+    ]
   },
   "packageFolders": {
     "/Users/martinyan/.nuget/packages/": {}
@@ -43,6 +68,12 @@
     "frameworks": {
       "net5.0": {
         "targetAlias": "net5.0",
+        "dependencies": {
+          "LinearAssignment": {
+            "target": "Package",
+            "version": "[1.2.0, )"
+          }
+        },
         "imports": [
           "net461",
           "net462",
