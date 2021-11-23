@@ -1,10 +1,25 @@
 {
   "version": 2,
-  "dgSpecHash": "K2yWluLLAPwCKB4H7oIaYdvTAEAG/0fO+7GNfsvw+KuqlTVG8rsKW7hRY2YtJpL6EAlUoOPJe1UMhVPcRbOKbA==",
+  "dgSpecHash": "8mbz6xsTMpL9TyBR2RX/Jwp4Fd6jfAYtpQZSGK+X5DXnLQVE1l6hsJhk/Sz6wWtpN/DBYAegdZtBAVXse2XxmA==",
   "success": true,
   "projectFilePath": "/Users/martinyan/BonZeb_CSharp/C#/C#.csproj",
   "expectedPackageFiles": [
-    "/Users/martinyan/.nuget/packages/linearassignment/1.2.0/linearassignment.1.2.0.nupkg.sha512"
+    "/Users/martinyan/.nuget/packages/linearassignment/1.2.0/linearassignment.1.2.0.nupkg.sha512",
+    "/Users/martinyan/.nuget/packages/mathnet.numerics/4.15.0/mathnet.numerics.4.15.0.nupkg.sha512",
+    "/Users/martinyan/.nuget/packages/microsoft.win32.systemevents/6.0.0/microsoft.win32.systemevents.6.0.0.nupkg.sha512",
+    "/Users/martinyan/.nuget/packages/system.drawing.common/6.0.0/system.drawing.common.6.0.0.nupkg.sha512",
+    "/Users/martinyan/.nuget/packages/zedgraph/5.1.7/zedgraph.5.1.7.nupkg.sha512"
   ],
-  "logs": []
+  "logs": [
+    {
+      "code": "NU1701",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Package 'ZedGraph 5.1.7' was restored using '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8' instead of the project target framework 'net5.0'. This package may not be fully compatible with your project.",
+      "libraryId": "ZedGraph",
+      "targetGraphs": [
+        "net5.0"
+      ]
+    }
+  ]
 }
