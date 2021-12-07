@@ -153,13 +153,6 @@ C:\Users\72941\Desktop\BonZeb_CSharp\BonZeb_CSharp\KalmanFilterTwoObjectsDemo\Ka
 C:\Users\72941\Desktop\BonZeb_CSharp\BonZeb_CSharp\KalmanFilterTwoObjectsDemo\Kalman Filter\bin\Debug\opencv_video231.dll
 C:\Users\72941\Desktop\BonZeb_CSharp\BonZeb_CSharp\KalmanFilterTwoObjectsDemo\Kalman Filter\bin\Debug\Kalman Filter.exe
 C:\Users\72941\Desktop\BonZeb_CSharp\BonZeb_CSharp\KalmanFilterTwoObjectsDemo\Kalman Filter\bin\Debug\Kalman Filter.pdb
-C:\Users\72941\Desktop\BonZeb_CSharp\BonZeb_CSharp\KalmanFilterTwoObjectsDemo\Kalman Filter\bin\Debug\ZedGraph.dll
-C:\Users\72941\Desktop\BonZeb_CSharp\BonZeb_CSharp\KalmanFilterTwoObjectsDemo\Kalman Filter\bin\Debug\Emgu.CV.xml
-C:\Users\72941\Desktop\BonZeb_CSharp\BonZeb_CSharp\KalmanFilterTwoObjectsDemo\Kalman Filter\bin\Debug\Emgu.CV.UI.xml
-C:\Users\72941\Desktop\BonZeb_CSharp\BonZeb_CSharp\KalmanFilterTwoObjectsDemo\Kalman Filter\bin\Debug\Emgu.Util.xml
-C:\Users\72941\Desktop\BonZeb_CSharp\BonZeb_CSharp\KalmanFilterTwoObjectsDemo\Kalman Filter\bin\Debug\ZedGraph.xml
-C:\Users\72941\Desktop\BonZeb_CSharp\BonZeb_CSharp\KalmanFilterTwoObjectsDemo\Kalman Filter\bin\Debug\zh-CN\ZedGraph.resources.dll
-C:\Users\72941\Desktop\BonZeb_CSharp\BonZeb_CSharp\KalmanFilterTwoObjectsDemo\Kalman Filter\obj\x86\Debug\Kalman Filter.csproj.AssemblyReference.cache
 C:\Users\72941\Desktop\BonZeb_CSharp\BonZeb_CSharp\KalmanFilterTwoObjectsDemo\Kalman Filter\obj\x86\Debug\Kalman_Filter.Form1.resources
 C:\Users\72941\Desktop\BonZeb_CSharp\BonZeb_CSharp\KalmanFilterTwoObjectsDemo\Kalman Filter\obj\x86\Debug\Kalman_Filter.Properties.Resources.resources
 C:\Users\72941\Desktop\BonZeb_CSharp\BonZeb_CSharp\KalmanFilterTwoObjectsDemo\Kalman Filter\obj\x86\Debug\Kalman Filter.csproj.GenerateResource.cache
