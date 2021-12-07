@@ -2,6 +2,7 @@ using MathNet.Numerics.LinearAlgebra;
 using MathNet.Numerics.LinearAlgebra.Double;
 using MathNet.Numerics.LinearAlgebra.Factorization;
 using System;
+using System.Linq;
 
 namespace UnscentedKalmanFilter
 {
@@ -96,7 +97,7 @@ namespace UnscentedKalmanFilter
             q = 0.05;
             r = 0.3; 
 
-            x = q * Matrix.Build.Random(L, 1); //initial state with noise
+            x = q * Matrix.Build.Random(L, 2); //initial state with noise
             P = Matrix.Build.Diagonal(L, L, 1); //initial state covraiance
 
             Q = Matrix.Build.Diagonal(L, L, q * q); //covariance of process
@@ -120,7 +121,7 @@ namespace UnscentedKalmanFilter
             c = Math.Sqrt(c);
         }
 
-        public void Update(double[] measurements)
+        public void Update(double[][] measurements)
         {
             if (m == 0)
             {
@@ -133,12 +134,18 @@ namespace UnscentedKalmanFilter
                 }
             }
 
-            var z = Matrix.Build.Dense(m, 1, 0);
-            z.SetColumn(0, measurements);
+            var z = Matrix.Build.Dense(m, 2, 0);
+            var FirstColumn = Enumerable.Range(0, measurements.GetLength(0))
+                .Select(x => measurements[x][0])
+                .ToArray();
+            var SecondColumn = Enumerable.Range(0, measurements.GetLength(0))
+                .Select(x => measurements[x][1])
+                .ToArray();
+            z.SetColumn(0, FirstColumn);
+            z.SetColumn(1, SecondColumn);
 
             //sigma points around x
             Matrix<double> X = GetSigmaPoints(x, P, c);
-
             //unscented transformation of process
             // X1=sigmas(x1,P1,c) - sigma points around x1
             //X2=X1-x1(:,ones(1,size(X1,2))) - deviation of X1
@@ -161,14 +168,14 @@ namespace UnscentedKalmanFilter
             Matrix<double> K = P12.Multiply(P2.Inverse());
 
             //state update
-            x = x1.Add(K.Multiply(z.Subtract(z1)));
+            x = x1.Add(K[0,0] * (z.Subtract(z1)));
             //covariance update 
             P = P1.Subtract(K.Multiply(P12.Transpose()));
         }
 
-        public double[] getState()
+        public double[][] getState()
         {
-            return x.ToColumnArrays()[0];
+            return x.ToColumnArrays();
         }
 
         public double[,] getCovariance()
@@ -189,7 +196,7 @@ namespace UnscentedKalmanFilter
         private Matrix<double>[] UnscentedTransform(Matrix<double> X, Matrix<double> Wm, Matrix<double> Wc, int n, Matrix<double> R)
         {
             int L = X.ColumnCount;
-            Matrix<double> y = Matrix.Build.Dense(n, 1, 0);
+            Matrix<double> y = Matrix.Build.Dense(n, 2, 0);
             Matrix<double> Y = Matrix.Build.Dense(n, L, 0);
 
             Matrix<double> row_in_X;
@@ -197,8 +204,9 @@ namespace UnscentedKalmanFilter
             {
                 row_in_X = X.SubMatrix(0, X.RowCount, k, 1);
                 Y.SetSubMatrix(0, Y.RowCount, k, 1, row_in_X);
-                y = y.Add(Y.SubMatrix(0, Y.RowCount, k, 1).Multiply(Wm[0,k]));
+                y = y.Add((Y.SubMatrix(0, Y.RowCount, k, 1))[0, 0] * (Wm[0,k]));
             }
+
 
             Matrix<double> Y1 = Y.Subtract(y.Multiply(Matrix.Build.Dense(1,L,1)));
             Matrix<double> P = Y1.Multiply(Matrix.Build.Diagonal(Wc.Row(0).ToArray()));

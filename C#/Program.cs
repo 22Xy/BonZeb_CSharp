@@ -98,16 +98,31 @@ namespace C_
             // }
             // Console.WriteLine(ret.ColumnAssignment);
 
+            // List<double> measurements = new List<double>();
+            // List<double> states = new List<double>();
+     
+            // Random rnd = new Random();
+
+            // for (int k = 0; k < 100; k++)
+            // {
+            //     var measurement = Math.Sin(k * 3.14 * 5 / 180) + (double)rnd.Next(50) / 100;
+            //     measurements.Add(measurement);
+            //     filter.Update(new[] { measurement });
+            //     states.Add(filter.getState()[0]);
+            // }
+
             var filter = new UKF();
 
-            List<double> measurements = new List<double>();
-            List<double> states = new List<double>();
+            List<double[]> measurements = new List<double[]>();
+            measurements.Add(new double[]{10.7535, 23.5071});
+            List<double[]> states = new List<double[]>();
+
+            // Console.WriteLine(measurements[0][0] + ", " + measurements[0][1]);
      
             Random rnd = new Random();
 
-            for (int k = 0; k < 100; k++)
-            {
-                var measurement = Math.Sin(k * 3.14 * 5 / 180) + (double)rnd.Next(50) / 100;
+            for (int k = 1; k < 100; k++) {
+                var measurement = new double[]{measurements[k-1][0] + (double)rnd.Next(100) / 100, measurements[k-1][1] + (double)rnd.Next(100) / 100};
                 measurements.Add(measurement);
                 filter.Update(new[] { measurement });
                 states.Add(filter.getState()[0]);
@@ -118,8 +133,8 @@ namespace C_
             PointPairList statesPairs = new PointPairList();
             for (int i = 0; i < measurements.Count; i++)
             {
-                measurementsPairs.Add(i, measurements[i]);
-                statesPairs.Add(i, states[i]);
+                measurementsPairs.Add(measurements[i][0], measurements[i][1]);
+                statesPairs.Add(states[i][0], states[i][1]);
             }
             myPane.AddCurve("measurement", measurementsPairs, Color.Red, SymbolType.Circle);
             myPane.AddCurve("estimate", statesPairs, Color.Green, SymbolType.XCross);
