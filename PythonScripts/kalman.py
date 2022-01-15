@@ -37,7 +37,7 @@ class Kalman:
 
     def predict(self):
         """
-        Make rediction
+        Make prediction
         :return:
         """
         self.X_prior = np.dot(self.A, self.X_posterior)

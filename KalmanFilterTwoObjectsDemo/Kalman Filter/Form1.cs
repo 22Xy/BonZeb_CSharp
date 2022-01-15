@@ -112,20 +112,20 @@ namespace Kalman_Filter
        
         //Setup Kalman Filter and predict methods
         public void KalmanFilter()
+        {
+            kal = new Kalman(4, 2, 0);
+            syntheticData = new SyntheticData();
+            Matrix<float> state = new Matrix<float>(new float[]
             {
-                kal = new Kalman(4, 2, 0);
-                syntheticData = new SyntheticData();
-                Matrix<float> state = new Matrix<float>(new float[]
-                {
-                    0.0f, 0.0f, 0.0f, 0.0f
-                });
-                kal.CorrectedState = state;
-                kal.TransitionMatrix = syntheticData.transitionMatrix;
-                kal.MeasurementNoiseCovariance = syntheticData.measurementNoise;
-                kal.ProcessNoiseCovariance = syntheticData.processNoise;
-                kal.ErrorCovariancePost = syntheticData.errorCovariancePost;
-                kal.MeasurementMatrix = syntheticData.measurementMatrix;
-            }
+                0.0f, 0.0f, 0.0f, 0.0f
+            });
+            kal.CorrectedState = state;
+            kal.TransitionMatrix = syntheticData.transitionMatrix;
+            kal.MeasurementNoiseCovariance = syntheticData.measurementNoise;
+            kal.ProcessNoiseCovariance = syntheticData.processNoise;
+            kal.ErrorCovariancePost = syntheticData.errorCovariancePost;
+            kal.MeasurementMatrix = syntheticData.measurementMatrix;
+        }
         public void KalmanFilter2()
         {
             kal2 = new Kalman(4, 2, 0);
