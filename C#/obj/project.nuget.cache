@@ -1,24 +1,26 @@
 {
   "version": 2,
-  "dgSpecHash": "IOt5UmvyAhdPVPV+P/RfJep6pzowg1Pi+HE1IxcAB7L3R+1w+DOtW79vQks0dd6aW9qLTh3ZdbatKp+GfCoBcA==",
+  "dgSpecHash": "LjVmwvADnI7N3YRu90iD+6+g6J0WpEBkRaE5/Cl1dDnwnQgPd7IO8OokrnL/NOlvv4DF+mVr74IcnKYKxhZtuw==",
   "success": true,
-  "projectFilePath": "C:\\Users\\72941\\Desktop\\BonZeb_CSharp\\BonZeb_CSharp\\C#\\C#.csproj",
+  "projectFilePath": "C:\\Users\\user\\Documents\\GitHub\\BonZeb_CSharp\\C#\\C#.csproj",
   "expectedPackageFiles": [
-    "C:\\Users\\72941\\.nuget\\packages\\linearassignment\\1.2.0\\linearassignment.1.2.0.nupkg.sha512",
-    "C:\\Users\\72941\\.nuget\\packages\\mathnet.numerics\\4.15.0\\mathnet.numerics.4.15.0.nupkg.sha512",
-    "C:\\Users\\72941\\.nuget\\packages\\microsoft.win32.systemevents\\6.0.0\\microsoft.win32.systemevents.6.0.0.nupkg.sha512",
-    "C:\\Users\\72941\\.nuget\\packages\\system.drawing.common\\6.0.0\\system.drawing.common.6.0.0.nupkg.sha512",
-    "C:\\Users\\72941\\.nuget\\packages\\zedgraph\\5.1.7\\zedgraph.5.1.7.nupkg.sha512"
+    "C:\\Users\\user\\.nuget\\packages\\accord\\3.8.0\\accord.3.8.0.nupkg.sha512",
+    "C:\\Users\\user\\.nuget\\packages\\accord.math\\3.8.0\\accord.math.3.8.0.nupkg.sha512",
+    "C:\\Users\\user\\.nuget\\packages\\linearassignment\\1.2.0\\linearassignment.1.2.0.nupkg.sha512",
+    "C:\\Users\\user\\.nuget\\packages\\mathnet.numerics\\4.15.0\\mathnet.numerics.4.15.0.nupkg.sha512",
+    "C:\\Users\\user\\.nuget\\packages\\microsoft.win32.systemevents\\6.0.0\\microsoft.win32.systemevents.6.0.0.nupkg.sha512",
+    "C:\\Users\\user\\.nuget\\packages\\system.drawing.common\\6.0.0\\system.drawing.common.6.0.0.nupkg.sha512",
+    "C:\\Users\\user\\.nuget\\packages\\zedgraph\\5.1.7\\zedgraph.5.1.7.nupkg.sha512"
   ],
   "logs": [
     {
       "code": "NU1701",
       "level": "Warning",
       "warningLevel": 1,
-      "message": "Package 'ZedGraph 5.1.7' was restored using '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8' instead of the project target framework 'net5.0'. This package may not be fully compatible with your project.",
+      "message": "Package 'ZedGraph 5.1.7' was restored using '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8' instead of the project target framework 'net6.0'. This package may not be fully compatible with your project.",
       "libraryId": "ZedGraph",
       "targetGraphs": [
-        "net5.0"
+        "net6.0"
       ]
     }
   ]
