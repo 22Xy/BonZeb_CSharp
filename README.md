@@ -15,12 +15,12 @@
 8. [Credits](#credits)
 
 # Introduction
-[BonZeb](https://github.com/ncguilbeault/BonZeb) is a [Bonsai](https://bonsai-rx.org/) library for high-resolution zebrafish behavioural tracking and analysis. The project is to add the real-time tracking feature to current BonZeb library so that researchers can collect accurate behavioral data easier. This README gives an overview of the problem-solving process and results in the past 8 months.
+[BonZeb](https://github.com/ncguilbeault/BonZeb) is a [Bonsai](https://bonsai-rx.org/) library for high-resolution zebrafish behavioural tracking and analysis. The project is to add the real-time tracking feature to the current BonZeb library so that researchers can collect accurate behavioural data easier. This README gives an overview of the problem-solving process and results in the past 8 months.
 
 # From Python to CSharp
 Goal: Rewrote tracking algorithms in C# (Bonsai) to make the project lightweight
 
-Since we want good real-time tracking experience, I have to keep the application as lightweight as possible. I need to program in C# which is the language used in Bonsai. However, I cannot just import methods from off-the-shelf C# libraries since it will import other unnecessary content and violate our goal to keep the software lightweight.
+Since we want a good real-time tracking experience, I have to keep the application as lightweight as possible. I need to program in C# which is the language used in Bonsai. However, I cannot just import methods from off-the-shelf C# libraries since it will import other unnecessary content and violate our goal to keep the software lightweight.
 
 I re-wrote the key tracking methods [cdist](https://docs.scipy.org/doc/scipy/reference/generated/scipy.spatial.distance.cdist.html) and [linear_sum_assignment](https://docs.scipy.org/doc/scipy-0.18.1/reference/generated/scipy.optimize.linear_sum_assignment.html) using C# and integrated them into BonZeb
 
@@ -28,7 +28,7 @@ I re-wrote the key tracking methods [cdist](https://docs.scipy.org/doc/scipy/ref
   - double[,] cDist(double[][] XA, double[][] XB) computes the distance between m points using Euclidean distance (2-norm) as the distance metric between the points. The points are arranged as m n-dimensional row vectors in the matrix X.
 
 - [LinearSumAssignment](https://github.com/ymart1n/BonZeb_CSharp/blob/3272d82fb6e031bc9ac36ca9d650d6abf6ee99d0/CSharp/multi-animal-tracking.cs#L69)
-  - The *LinearSumAssignment* method solves the linear sum assignment problem (using Hungarian method). The linear sum assignment problem is also known as minimum weight matching in bipartite graphs. A problem instance is described by a matrix C, where each C[i,j] is the cost of matching vertex i of the first partite set (a “worker”) and vertex j of the second set (a “job”). The goal is to find a complete assignment of workers to jobs of minimal cost.
+  - The *LinearSumAssignment* method solves the linear sum assignment problem (Using the Hungarian method). The linear sum assignment problem is also known as minimum weight matching in bipartite graphs. A problem instance is described by a matrix C, where each C[i,j] is the cost of matching vertex i of the first partite set (a “worker”) and vertex j of the second set (a “job”). The goal is to find a complete assignment of workers to jobs of minimal cost.
 
 ## Result
 - Short demo of labelling objects in real-time after integrating these two methods:
@@ -38,7 +38,7 @@ https://user-images.githubusercontent.com/56213581/166180961-183f3af4-a46b-499a-
 
 
 # Kalman Filter
-You can use a Kalman filter in any place where you have uncertain information about some dynamic system, and you can make an educated guess about what the system is going to do next. Even if messy reality comes along and interferes with the clean motion you guessed about, the Kalman filter will often do a very good job of figuring out what actually happened [1].
+You can use a Kalman filter in any place where you have uncertain information about some dynamic system, and you can make an educated guess about what the system is going to do next. Even if messy reality comes along and interferes with the clean motion you guessed about, the Kalman filter will often do a very good job of figuring out what happened [1].
 
 <div align="center">
   <img src="https://www.bzarg.com/wp-content/uploads/2015/08/kalflow.png" width="400" ></img>
@@ -58,7 +58,7 @@ https://user-images.githubusercontent.com/56213581/166180919-b333f667-f108-4109-
 ___
 In the first half (4 months) of the project, I completed implemented lightweight C# algorithms/programs for real-time tracking and prospected the second half of the project in the first presentation to the lab:
 - Utilize more Machine Learning models to improve real-time identity tracking when objects overlap
-- Integrate all features together and get a robust tracking software
+- Integrate all features and get a robust tracking software
 ___
 
 # YOLOv5
@@ -83,8 +83,11 @@ I used [Roboflow](https://roboflow.com/) to export annotated dataset for trainin
 # YOLOv5 + DeepSORT
 
 [DeepSORT](https://github.com/nwojke/deep_sort) is an algorithm for tracking that extends Simple Online and Real-time Tracking (SORT) with a Deep Association Metric. 
+
 ![](/Final%20Presentation/deepsort1.png)
+
 DeepSORT uses a custom deep convolutional neural network (CNN) as the appearance descriptor (identifying each unique object) [7].
+
 ![](/Final%20Presentation/deepsort2.png)
 (Image Credit: [DeepSORT — Deep Learning applied to Object Tracking](https://medium.com/augmented-startups/deepsort-deep-learning-applied-to-object-tracking-924f59f99104) [8])
 
@@ -101,24 +104,24 @@ https://user-images.githubusercontent.com/56213581/166181075-fae61442-6bbb-4e51-
 ## Completed
 - Lightweight C# algorithms/programs for real-time tracking
 - Trained Machine Learning models to detect and track zebrafish in real-time
-- Integrate detection and tracking features together and get a tracking software​
+- Integrate detection and tracking features together and get a tracking software
 
 ## What can be improved?
 - For YOLOv5
-  - Better Hardware (GPU or on the cloud)​
-    - 35.665s to detect 778 images​
-    - 0.04 second inference time​
-    - Could done better if accelerated with better GPU (current testing GPU is Tesla K80, which is provided by Google Colab for free)​
-  - More robust dataset​
-    - Objects are labelled correctly when they are overlapping​
-    - More images and videos for training​
-    - Using idtracker.ai or some other fish tracking algorithms to obtain dataset for training​
-  - Train other YOLOv5 models (e.g., YOLOv5x6, YOLOv5l6, due to limited time and resource, I chose to train YOLOv5s6) with better performance ![](/Final%20Presentation/diff-yolo-models.png)
+  - Better Hardware (GPU or on the cloud)
+    - 35.665s to detect 778 images
+    - 0.04 second inference time
+    - Could do better if accelerated with a better GPU (the current testing GPU is Tesla K80, which is provided by Google Colab for free)
+  - More robust dataset
+    - Objects are labelled correctly when they are overlapping
+    - More images and videos for training
+    - Use idtracker.ai or some other fish tracking algorithms to obtain a dataset for training
+  - Train other YOLOv5 models (e.g., YOLOv5x6, YOLOv5l6, due to limited time and resources, I chose to train YOLOv5s6) with better performance ![](/Final%20Presentation/diff-yolo-models.png)
 
 - For DeepSORT
   - Train a deep association metric model that learns zebrafish appearance 
-    - for identifying each zebrafish based on their appearance​ (P.S. Though it seems there is no much appearance feature we can get for each zebrafish (they look alike), technically speaking, the high resolution cameras in the lab provides enough information for identification)
-    - according to the [DeepSORT GitHub repo](https://github.com/nwojke/deep_sort), we can use a novel [cosine metric learning](https://github.com/nwojke/cosine_metric_learning) approach to train a deep association metric model on a custom dataset (annotated zebrafish images, in our case)
+    - for identifying each zebrafish based on its appearance (P.S. Though it seems there is not much appearance feature we can get for each zebrafish (they look alike), technically speaking, the high-resolution cameras in the lab provides enough information for identification)
+    - according to the [DeepSORT GitHub repo](https://github.com/nwojke/deep_sort), we can use a novel [cosine metric learning](https://github.com/nwojke/cosine_metric_learning) approach to training a deep association metric model on a custom dataset (annotated zebrafish images, in our case)
 
 ## Prospect
 - Explore & study other tracking algorithms (e.g., [T-Rex](https://github.com/mooch443/trex), [xyTracker](https://github.com/maljoras/xyTracker)) to learn how they implemented real-time tracking (mostly in C++ and MATLAB).
@@ -145,10 +148,10 @@ https://docs.scipy.org/doc/scipy-0.18.1/reference/generated/scipy.optimize.linea
 [9] Yolov5 + Deep Sort with OSNet https://github.com/mikel-brostrom/Yolov5_DeepSort_OSNet
 
 # Credits
-Big thanks to Prof. Tod R. Thiele and Prof. Anya Tafliovich for their supervision and providing such a valuable opportunity.
+Big thanks to Prof. Tod R. Thiele and Prof. Anya Tafliovich for their supervision and for providing such a valuable opportunity.
 
 Special thanks to Dr. Nicholas Guilbeault for his continuous support and help in the last 8 months. I learned a lot when we were collaboratively working on this project.
 
 Thanks to all Thiele Lab members for asking insightful questions and showing support for my presentation.
 
-Thanks to the authors/organizations referred in the reference section for helpful resource and information.
+Thanks to the authors/organizations referred to in the reference section for helpful resources and information.
