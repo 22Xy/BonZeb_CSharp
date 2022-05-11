@@ -70,7 +70,10 @@ I wrote a [Python script](https://github.com/ymart1n/BonZeb_CSharp/blob/main/yol
 
 I used [Roboflow](https://roboflow.com/) to export annotated dataset for training the YOLOv5 object detection model to detect zebrafish in each image/frame.
 
-![](/Final%20Presentation/roboflow1.png) ![](/Final%20Presentation/roboflow2.png) ![](/Final%20Presentation/roboflow3.png)
+![](/Final%20Presentation/roboflow1.png) ![](/Final%20Presentation/roboflow2.png) 
+
+![](/Final%20Presentation/roboflow3.png)
+I trained the model with a batch size of 32 for only 50 epochs due to limited GPU resources. 50 epochs are good enough in this case since we only detect one class of objects. The result graphs below also show that 50 is a proper number of epochs.
 
 ## Result
 - Graph of the trained model performance:
